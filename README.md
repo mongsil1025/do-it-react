@@ -1,72 +1,36 @@
 # do-it-react
+
 Practice React
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 컴포넌트의 생명주기
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- constructor(props) 함수
+  - 항상 super() 함수를 가장 위에 호출해야 한다.
+  ```
+  constructor(props) {
+      super(props);
+      // 이후에 추가적인 state 데이터 혹은 변수를 선언한다.
+  }
+  ```
+- render() 함수
+  - 데이터가 변경되어 새 화면을 그려야 할 때 자동으로 호출되는 함수
+- static getDerivedStateFromProps(props, state) 함수
+  - 정적함수이다. 따라서 함수 안에서 `this.props` 나 `this.state`와 같은 방법으로 값에 접근할 수 없다.
+  - 반드시 전달된 파라미터 (props, state) 값을 이용하자.
+  - `props` 는 상위 컴포넌트에서 전달된 값이며, `state`는 현재 컴포넌트의 state값이다.
+- componentDidMount() 함수
+  - render() 함수가 JSX를 화면에 그린 이후에 호출되는 함수이다. 만약 컴포넌트가 화면에 모두 표현된 이후 해야하는 작업들은 여기서 하면 된다.
+- shouldComponentUpdate(nextProps, nextSate) 함수
+  - state 값이 변경되면 '화면을 새로 출력해야 하는지' 판단하는 함수이다.
+  - 데이터 변화를 비교하는 작업을 포함하므로 리액트 성능에 영향을 많이 준다.
+  - `forceUpdate()` 함수를 호출하면, 이 함수는 호출되지 않는다.
+- getSnapshotBeforeUpdate(prevProps, prevState) 함수
+  - 컴포넌트의 변경된 내용이 가상화면에 완성된 이후 호출되는 함수이다.
+  - 실제 화면에 출력되기 전에 호출되므로 DOM 정보에 접근할 때 사용된다.
+- componentDidUpdate(prevProps, prevState, snapshot) 함수
+  - 컴포넌트가 실제 화면에 출력된 이후 호출되는 함수이다.
+  - 스크롤 위치를 옮기거나 커서를 이동시키는 등의 DOM 정보를 변경할 때 사용된다.
+- componentWillUnmount() 함수
+  - 컴포넌트가 소멸되기 직전에 호출되는 함수이다.
+  - 컴포넌트에서 감시하고 있는 작업들을 해제할 때 필요한 함수이다.
+  - 메모리 누수 현상을 막기 위해 잘 생각해야 한다.
