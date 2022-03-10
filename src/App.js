@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import './materialize.scss';
 import './App.css';
 import TodaysPlan from './03/TodaysPlan';
+import StateExample from './03/StateExample';
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         <img src="http://www.easyspub.co.kr/images/logo_footer.png"/>
         <h1 className='title'>Do it! React</h1>
         <TodaysPlan name="놀러가자" date="2022-03-10" isDone/>
+        <StateExample/>
       </div>
     );
   }
