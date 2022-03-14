@@ -43,3 +43,5 @@ Practice React
   - `shouldComponentUpdate()` 함수를 '얕은 비교'를 하고 render()한다.
 - SFC(Stateless Functional Component) : 함수형 컴포넌트
   - 데이터를 받아 출력할 컴포넌트를 반환한다.
+- Array Component
+  - `map()` 함수를 사용하면 배열로 저장된 데이터를 jsx 로 변경하도록 응용할 수 있다.
