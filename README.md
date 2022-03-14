@@ -34,3 +34,12 @@ Practice React
   - 컴포넌트가 소멸되기 직전에 호출되는 함수이다.
   - 컴포넌트에서 감시하고 있는 작업들을 해제할 때 필요한 함수이다.
   - 메모리 누수 현상을 막기 위해 잘 생각해야 한다.
+
+# 컴포넌트 종류
+
+- Component
+  - 프로퍼티, state, 생명주기 함수가 들어있는 구조의 컴포넌트
+- PureComponent
+  - `shouldComponentUpdate()` 함수를 '얕은 비교'를 하고 render()한다.
+- SFC(Stateless Functional Component) : 함수형 컴포넌트
+  - 데이터를 받아 출력할 컴포넌트를 반환한다.
