@@ -45,3 +45,4 @@ Practice React
   - 데이터를 받아 출력할 컴포넌트를 반환한다.
 - Array Component
   - `map()` 함수를 사용하면 배열로 저장된 데이터를 jsx 로 변경하도록 응용할 수 있다.
+  - `React.Fragment` : 여러 노드를 반환할 때 사용하는 껍데기

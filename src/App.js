@@ -12,8 +12,12 @@ import TodoList from './03/TodoList';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {count: 10};
+    this.state = {count: 1};
     this.resetCount = this.resetCount.bind(this);
+    this.increaseCount = this.increaseCount.bind(this);
+  }
+  increaseCount() {
+    this.setState(({count}) => ({count: count + 1}));
   }
   resetCount() {
     this.setState(({count}) => ({count: count + 10}));
@@ -28,7 +32,7 @@ class App extends React.Component {
           <StateExample/>
         </div>
         <div>
-          <Counter count={this.state.count}/>
+          <Counter count={this.state.count} onAdd={this.increaseCount}/>
           <NewCounter count={this.state.count}/>
           <button onClick={this.resetCount}>{this.state.count + 10} 으로 초기화</button>
           <ListExample/>
