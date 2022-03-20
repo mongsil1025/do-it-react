@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // 아래 머터리얼 스타일 설정을 삭제합니다.
-// import './materialize.scss';
+import './sass/materialize.scss';
 import './App.css';
 import TodaysPlan from './03/TodaysPlan';
 import StateExample from './03/StateExample';
@@ -25,6 +25,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <nav>
+          <div className='nav-wrapper'>
+            <div>두잇! 리액트 시작하기</div>
+          </div>  
+        </nav>
         <div>
           <img src="http://www.easyspub.co.kr/images/logo_footer.png"/>
           <h1 className='title'>Do it! React</h1>
