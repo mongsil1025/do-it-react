@@ -68,6 +68,7 @@ export default withStyles(({ color, size, unit, responsive }) => ({
     padding: unit * 2,
     cursor: 'pointer',
     [responsive.small]: {
+      // 핸드폰 해상도에 따라 100% 로 늘린 모습
       width: '100%',
     },
   },
